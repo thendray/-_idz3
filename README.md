@@ -142,3 +142,4 @@
 
 *Результаты*
 
+![изображение](https://user-images.githubusercontent.com/96993075/202914608-f822f73b-7588-44e8-8713-de9d4fa856c2.png)
