@@ -34,6 +34,11 @@
 
 Далее создадим файл на ассемблере с помощью команд
 
- 
-  $ gcc -masm=intel part1.c -S -o part1.s
-  $ gcc -masm=intel part2.c -S -o part2.s
+     $ gcc -masm=intel part1.c -S -o part1.s
+     $ gcc -masm=intel part2.c -S -o part2.s
+
+Получившиеся скомпилируем и звпустим
+
+    $ gcc part1_2.s -c -o part1.o
+	   $ gcc part2_2.s -c -o part2.o
+	   $ gcc ./part2.o part1.o -o foo
