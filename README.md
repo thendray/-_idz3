@@ -37,8 +37,54 @@
      $ gcc -masm=intel part1.c -S -o part1.s
      $ gcc -masm=intel part2.c -S -o part2.s
 
-Получившиеся скомпилируем и звпустим
+Получившиеся скомпилируем и запустим
 
     $ gcc part1.s -c -o part1.o
     $ gcc part2.s -c -o part2.o
-    $ gcc ./part2.o part1.o -o foo1
+    $ gcc ./part2.o part1.o -o foo1 -lm
+    
+-lm для компидяции с math.h 
+
+[part1.s](/asm/part1.s)
+
+[part2.s](/asm/part2.s)
+
+В полученные файлы добавлены комментарии о переменных.
+
+---
+
+Используя соответсвующие флаги получим файлы без лишних макросов
+
+     $ gcc -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions ./part1.c -S -o ./part1_cl.s
+     $ gcc -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions ./part2.c -S -o ./part2_cl.s
+
+
+[part1_cl.s](/asm/part1_cl.s)
+
+[part2_cl.s](/asm/part2_cl.s)
+
+В полученные файлы добавлены все необходимые комментарии.
+
+---
+
+Далее получим файлы с использованием регистров вместо стека
+
+[Фай1_регсистр](/asm/part1_reg.s)
+
+[Файл2_регистр](/asm/part2_reg.s)
+
+В полученные файлы добавим комментарии об использовании регистров вместо стека
+
+---
+
+**Сравним размеры трех программ**
+
+(представленные значения взяты до комментирования)
+
+**Программа на Си** - 1874 байт + 119 байт
+
+**Программа на ассемблере со стеком** - 6390 байт + 895 байт
+
+**Программа на ассемблере с регистрами** - 4412 байт + 422 байт
+
+
