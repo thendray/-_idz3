@@ -39,6 +39,6 @@
 
 Получившиеся скомпилируем и звпустим
 
-    $ gcc part1_2.s -c -o part1.o
-	   $ gcc part2_2.s -c -o part2.o
-	   $ gcc ./part2.o part1.o -o foo
+    $ gcc part1.s -c -o part1.o
+    $ gcc part2.s -c -o part2.o
+    $ gcc ./part2.o part1.o -o foo1
