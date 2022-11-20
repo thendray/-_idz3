@@ -146,3 +146,16 @@
 *Результаты*
 
 ![изображение](https://user-images.githubusercontent.com/96993075/202914608-f822f73b-7588-44e8-8713-de9d4fa856c2.png)
+
+![изображение](https://user-images.githubusercontent.com/96993075/202914762-0e8dd723-b6e3-48f8-a688-91e539b7ba0e.png)
+
+![изображение](https://user-images.githubusercontent.com/96993075/202914787-fe32a8a8-859d-4f77-b29c-948f816823cd.png)
+
+![изображение](https://user-images.githubusercontent.com/96993075/202914818-3b669583-e62c-49e1-a470-4ba2abe72339.png)
+
+![изображение](https://user-images.githubusercontent.com/96993075/202914924-2744cbb6-7f23-43f2-909a-0df77df12998.png)
+
+![изображение](https://user-images.githubusercontent.com/96993075/202914952-6a48978f-c484-489f-95bb-2a1698136ef6.png)
+
+![изображение](https://user-images.githubusercontent.com/96993075/202914990-c4791479-ce57-42ab-95f9-a20e9af4cf74.png)
+
