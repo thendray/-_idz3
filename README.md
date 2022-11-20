@@ -30,4 +30,10 @@
 
 Код программы на Си - [часть2](/c/part2.c)
 
+---
 
+Далее создадим файл на ассемблере с помощью команд
+
+ 
+  $ gcc -masm=intel part1.c -S -o part1.s
+  $ gcc -masm=intel part2.c -S -o part2.s
