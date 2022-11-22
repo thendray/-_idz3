@@ -5,16 +5,16 @@
 	.type	factorial, @function
 factorial:
 	endbr64
-	movsd	xmm0, QWORD PTR .LC0[rip]
-	cmp	edi, 1
+	movsd	xmm0, QWORD PTR .LC0[rip]	#xmm0 := &.LC0
+	cmp	edi, 1				#compare edi and 1
 	jbe	.L5
-	push	rbx
-	mov	ebx, edi
+	push	rbx				#сохрвнение rbx
+	mov	ebx, edi			#ebx := edi
 	lea	edi, -1[rdi]
 	call	factorial
 	movaps	xmm1, xmm0
 	cvtsi2sd	xmm0, ebx
-	pop	rbx
+	pop	rbx				#очистка rbx
 	mulsd	xmm0, xmm1
 	ret
 .L5:
