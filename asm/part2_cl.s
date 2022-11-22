@@ -4,17 +4,17 @@
 	.globl	factorial
 	.type	factorial, @function
 factorial:
-	endbr64
+	endbr64					#пролог
 	push	rbp
 	mov	rbp, rsp
-	sub	rsp, 16
-	mov	DWORD PTR -4[rbp], edi
-	cmp	DWORD PTR -4[rbp], 1
+	sub	rsp, 16				#выдеоение стека
+	mov	DWORD PTR -4[rbp], edi		#-4[rbp] := edi (1ый передаваемый аргумент (n))
+	cmp	DWORD PTR -4[rbp], 1		# сравнение n с 1
 	je	.L2
-	cmp	DWORD PTR -4[rbp], 0
+	cmp	DWORD PTR -4[rbp], 0		#сравнение n с 0
 	jne	.L3
 .L2:
-	movsd	xmm0, QWORD PTR .LC0[rip]
+	movsd	xmm0, QWORD PTR .LC0[rip]	#запись возвращаемого значения в xmm0
 	jmp	.L4
 .L3:
 	pxor	xmm1, xmm1
