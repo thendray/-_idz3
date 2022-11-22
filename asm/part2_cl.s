@@ -17,18 +17,18 @@ factorial:
 	movsd	xmm0, QWORD PTR .LC0[rip]	#запись возвращаемого значения в xmm0
 	jmp	.L4
 .L3:
-	pxor	xmm1, xmm1
-	cvtsi2sd	xmm1, DWORD PTR -4[rbp]
-	movsd	QWORD PTR -16[rbp], xmm1
-	mov	eax, DWORD PTR -4[rbp]
-	sub	eax, 1
-	mov	edi, eax
-	call	factorial
-	mulsd	xmm0, QWORD PTR -16[rbp]
+	pxor	xmm1, xmm1			# xmm1 & xmm1 - побитовое исключающее или для 64 разрядных операндов
+	cvtsi2sd	xmm1, DWORD PTR -4[rbp]	# преобразование -4[rpb] в вещественное
+	movsd	QWORD PTR -16[rbp], xmm1	# xmm1 := -16[rbp]
+	mov	eax, DWORD PTR -4[rbp]		# eax := -4[rbp]
+	sub	eax, 1				# eax -= 1
+	mov	edi, eax			# edi := eax
+	call	factorial			# вызов factorial
+	mulsd	xmm0, QWORD PTR -16[rbp]	# -16[rbp] * xmm0
 .L4:
 	movq	rax, xmm0
 	movq	xmm0, rax
-	leave
+	leave					# эпилог
 	ret
 	.size	factorial, .-factorial
 	.section	.rodata
