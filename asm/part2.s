@@ -1,19 +1,19 @@
 	.file	"part2_a.c"
 	.intel_syntax noprefix
 	.text
-	.globl	factorial
-	.type	factorial, @function
+	.globl	factorial			#объявленеи названия функции
+	.type	factorial, @function		#объявление факториал - функцией
 factorial:
 .LFB0:
 	.cfi_startproc
-	endbr64
+	endbr64					#пролог
 	push	rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
-	mov	rbp, rsp
+	mov	rbp, rsp			#rbp := rsp 
 	.cfi_def_cfa_register 6
 	sub	rsp, 16
-	mov	DWORD PTR -4[rbp], edi
+	mov	DWORD PTR -4[rbp], edi		#передаваемый аргумент (n)
 	cmp	DWORD PTR -4[rbp], 1
 	je	.L2
 	cmp	DWORD PTR -4[rbp], 0
