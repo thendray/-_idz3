@@ -40,14 +40,14 @@ getRandomX:
 	.type	main, @function
 main:
 	endbr64
-	push	r15
-	push	r14
-	push	r13
-	push	r12
+	push	r15			#сохранение регситра r15
+	push	r14			#сохранение регистра r14
+	push	r13			#сохранение регистра r13
+	push	r12			#сохранение регистра r12
 	push	rbp
 	mov	ebp, edi
 	push	rbx
-	mov	rbx, rsi
+	mov	rbx, rsi		#rbx := rsi
 	sub	rsp, 88
 	cmp	edi, 2
 	jne	.L4
@@ -91,7 +91,7 @@ main:
 .L6:
 	movsd	xmm0, QWORD PTR 40[rsp]
 	xorps	xmm0, XMMWORD PTR .LC7[rip]
-	mov	r13d, 1000
+	mov	r13d, 1000				#r13d := 1000
 	call	exp@PLT
 	lea	rsi, 48[rsp]
 	mov	edi, 1
@@ -99,9 +99,9 @@ main:
 	call	clock_gettime@PLT
 .L9:
 	mov	QWORD PTR [rsp], 0x000000000
-	xor	r12d, r12d
+	xor	r12d, r12d				#r12d &= r12d
 .L13:
-	cvtsi2sd	xmm1, r12d
+	cvtsi2sd	xmm1, r12d			#r12d в вещественный xmm1
 	movsd	xmm0, QWORD PTR .LC8[rip]
 	movsd	QWORD PTR 24[rsp], xmm1
 	call	pow@PLT
@@ -110,7 +110,7 @@ main:
 	movsd	xmm0, QWORD PTR 40[rsp]
 	call	pow@PLT
 	movsd	xmm1, QWORD PTR 16[rsp]
-	mov	edi, r12d
+	mov	edi, r12d				#edi := r12d
 	mulsd	xmm1, xmm0
 	movsd	QWORD PTR 16[rsp], xmm1
 	call	factorial@PLT
@@ -128,14 +128,14 @@ main:
 	jb	.L10
 	inc	r12d
 	movsd	QWORD PTR [rsp], xmm0
-	cmp	r12d, 1000
+	cmp	r12d, 1000			#compare r12d && 1000
 	jne	.L13
 .L10:
 	dec	r13d
 	jne	.L9
 	lea	rsi, 64[rsp]
 	mov	edi, 1
-	lea	r13, .LC13[rip]
+	lea	r13, .LC13[rip]			#r13 := &.LC13
 	call	clock_gettime@PLT
 	cvtsi2sd	xmm0, QWORD PTR 64[rsp]
 	movsd	xmm3, QWORD PTR [rsp]
@@ -144,9 +144,9 @@ main:
 	cvtsi2sd	xmm1, QWORD PTR 72[rsp]
 	lea	r12, .LC14[rip]
 	subsd	xmm3, QWORD PTR 8[rsp]
-	mulsd	xmm0, xmm2
-	movq	r15, xmm3
-	addsd	xmm0, xmm1
+	mulsd	xmm0, xmm2	
+	movq	r15, xmm3			#r15 := xmm3
+	addsd	xmm0, xmm1	
 	cvtsi2sd	xmm1, QWORD PTR 48[rsp]
 	mulsd	xmm1, xmm2
 	subsd	xmm0, xmm1
@@ -165,12 +165,12 @@ main:
 	xor	eax, eax
 	call	__fprintf_chk@PLT
 	movsd	xmm0, QWORD PTR [rsp]
-	mov	rdx, r12
+	mov	rdx, r12			#rdx := r12
 	mov	rdi, rbp
 	mov	esi, 1
 	mov	al, 1
 	call	__fprintf_chk@PLT
-	movq	xmm0, r15
+	movq	xmm0, r15			#xmm0 := r15
 	mov	rdi, rbp
 	mov	al, 1
 	andps	xmm0, XMMWORD PTR .LC9[rip]
@@ -181,13 +181,13 @@ main:
 	call	__fprintf_chk@PLT
 	jmp	.L8
 .L15:
-	mov	rdx, r14
-	mov	rsi, r13
+	mov	rdx, r14			#rdx := r14
+	mov	rsi, r13			#rsi := r13
 	mov	edi, 1
 	xor	eax, eax
 	call	__printf_chk@PLT
 	movsd	xmm0, QWORD PTR [rsp]
-	mov	rsi, r12
+	mov	rsi, r12			#rsi := r12
 	mov	al, 1
 	mov	edi, 1
 	call	__printf_chk@PLT
