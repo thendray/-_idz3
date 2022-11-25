@@ -1,7 +1,7 @@
 	.file	"part1_a.c"
 	.intel_syntax noprefix
 	.text
-	.globl	getRandomX
+	.globl	getRandomX			#функция gwrRandomX
 	.type	getRandomX, @function
 getRandomX:
 .LFB6:
@@ -39,20 +39,20 @@ getRandomX:
 .LFE6:
 	.size	getRandomX, .-getRandomX
 	.section	.rodata
-.LC3:
+.LC3:				#строка для вывода double
 	.string	"%lf"
-.LC4:
+.LC4:				#строка для чтения файла
 	.string	"r"
-.LC5:
+.LC5:				#строка подсказка вывода
 	.string	"Input is incorrect"
-.LC12:
+.LC12:				#строка для записи в файл
 	.string	"w"
 	.align 8
-.LC13:
+.LC13:				#строка подсказка вывода для времени работы программы
 	.string	"Program working time: %lld ns\n"
-.LC14:
+.LC14:				#строка подсказка вывода для полученного результата 
 	.string	"Program result: %.20lf\n"
-.LC16:
+.LC16:				#строка подсказка вывода для сравнения точности полученного прогрпммой значения
 	.string	"Precision: %.20lf %%"
 .LC17:
 	.string	"Precision: %.20lf %%\n"
