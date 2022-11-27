@@ -20,7 +20,7 @@ getRandomX:
 	call	rand@PLT
 	pxor	xmm0, xmm0
 	cvtsi2sd	xmm0, eax
-	movsd	xmm1, QWORD PTR .LC0[rip]
+	movsd	xmm1, QWORD PTR .LC0[rip]		#randomX
 	divsd	xmm0, xmm1
 	movsd	QWORD PTR -8[rbp], xmm0
 	movsd	xmm1, QWORD PTR -8[rbp]
@@ -74,7 +74,7 @@ main:
 	mov	rax, QWORD PTR fs:40
 	mov	QWORD PTR -8[rbp], rax
 	xor	eax, eax
-	mov	DWORD PTR -108[rbp], 1000
+	mov	DWORD PTR -108[rbp], 1000		#repeat
 	cmp	DWORD PTR -132[rbp], 2
 	jne	.L4
 	mov	rax, QWORD PTR -144[rbp]
@@ -83,7 +83,7 @@ main:
 	movzx	eax, BYTE PTR [rax]
 	cmp	al, 99
 	jne	.L4
-	lea	rax, -104[rbp]
+	lea	rax, -104[rbp]				#x
 	mov	rsi, rax
 	lea	rax, .LC3[rip]
 	mov	rdi, rax
@@ -137,7 +137,7 @@ main:
 	mov	eax, 0
 	jmp	.L8
 .L5:
-	pxor	xmm0, xmm0
+	pxor	xmm0, xmm0			#total
 	movsd	QWORD PTR -96[rbp], xmm0
 	movsd	xmm0, QWORD PTR -104[rbp]
 	movq	xmm1, QWORD PTR .LC7[rip]
@@ -146,15 +146,15 @@ main:
 	movq	xmm0, rax
 	call	exp@PLT
 	movq	rax, xmm0
-	mov	QWORD PTR -80[rbp], rax
-	lea	rax, -48[rbp]
+	mov	QWORD PTR -80[rbp], rax		#res
+	lea	rax, -48[rbp]			#start
 	mov	rsi, rax
 	mov	edi, 1
 	call	clock_gettime@PLT
 	mov	DWORD PTR -116[rbp], 0
 	jmp	.L9
 .L15:
-	pxor	xmm0, xmm0
+	pxor	xmm0, xmm0			#cur
 	movsd	QWORD PTR -96[rbp], xmm0
 	mov	DWORD PTR -112[rbp], 0
 	jmp	.L10
@@ -207,7 +207,7 @@ main:
 	mov	eax, DWORD PTR -116[rbp]
 	cmp	eax, DWORD PTR -108[rbp]
 	jl	.L15
-	lea	rax, -32[rbp]
+	lea	rax, -32[rbp]			#end
 	mov	rsi, rax
 	mov	edi, 1
 	call	clock_gettime@PLT
